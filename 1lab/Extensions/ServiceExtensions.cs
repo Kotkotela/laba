@@ -2,7 +2,7 @@
 using Entities;
 using LoggerService;
 using Microsoft.EntityFrameworkCore;
-using ILoggerManager = LoggerService.ILoggerManager;
+
 
 namespace WebApplication1.Extensions
 {

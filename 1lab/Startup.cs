@@ -1,7 +1,11 @@
+using _1lab.Extensions;
 using Contracts;
+using Entities.DataTransferObjects;
+using LoggerService;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using NLog;
+using System;
 using System.Linq.Expressions;
 using WebApplication1.Extensions;
 namespace ShopApi;
@@ -16,21 +20,21 @@ public class Startup
 
     public IConfiguration Configuration { get; }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
         services.ConfigureCors();
         services.ConfigureIISIntegration();
+        services.ConfigureLoggerService();
         services.ConfigureSqlContext(Configuration);
         services.ConfigureRepositoryManager();
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-
+        services.AddAutoMapper(typeof(Startup));
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
     {
         if (env.IsDevelopment())
         {
@@ -39,6 +43,7 @@ public class Startup
             app.UseSwaggerUI();
         }
 
+        app.ConfigureExceptionHandler((Contracts.ILoggerManager)logger);
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseCors("CorsPolicy");
@@ -85,4 +90,7 @@ public class WeatherForecastController : ControllerBase
     }
 
 }
+
+
+
 

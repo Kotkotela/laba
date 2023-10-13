@@ -1,4 +1,4 @@
-using Contracts;
+/**using Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("[controller]")]
@@ -22,4 +22,4 @@ public class WeatherForecastController : ControllerBase
         _logger.LogError("Вот сообщение об ошибке от нашего контроллера значений.");
         return new string[] { "value1", "value2" };
     }
-}
+}*/

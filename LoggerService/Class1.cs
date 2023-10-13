@@ -1,10 +1,7 @@
 ﻿namespace LoggerService
 {
-    public interface ILoggerManager
+    public class Class1
     {
-        void LogInfo(string message);
-        void LogWarn(string message);
-        void LogDebug(string message);
-        void LogError(string message);
+
     }
 }

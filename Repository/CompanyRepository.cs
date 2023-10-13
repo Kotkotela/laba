@@ -15,17 +15,10 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
-    }
-    public class EmployeeRepository : RepositoryBase<Employee>, IEmployeeRepository
-    {
-        public EmployeeRepository(RepositoryContext repositoryContext)
-        : base(repositoryContext)
-        {
-        }
 
-        public void AnyMethodFromEmployeeRepository()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<Company> GetAllCompanies(bool trackChanges) =>
+       FindAll(trackChanges)
+        .OrderBy(c => c.Name)
+        .ToList();
     }
 }

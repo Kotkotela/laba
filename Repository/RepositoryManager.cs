@@ -7,8 +7,6 @@ public class RepositoryManager : IRepositoryManager
     private RepositoryContext _repositoryContext;
     private ICompanyRepository _companyRepository;
     private IEmployeeRepository _employeeRepository;
-    private IayditoryaRepository _ayditoryaRepository;
-    private IstudentRepository _studentRepository;
     public RepositoryManager(RepositoryContext repositoryContext)
     {
         _repositoryContext = repositoryContext;
@@ -32,26 +30,36 @@ public class RepositoryManager : IRepositoryManager
             return _employeeRepository;
         }
     }
-    public IayditoryaRepository ayditorya
-    {
-        get
-        {
-            if (_ayditoryaRepository == null)
-                _ayditoryaRepository = new ayditoryaRepository(_repositoryContext);
-            return _ayditoryaRepository;
-        }
-    }
-    public IstudentRepository student
-    {
-        get
-        {
-            if (_studentRepository == null)
-                _studentRepository = new studentRepostiory(_repositoryContext);
-            return _studentRepository;
-        }
-    }
 
     ILoggerManager IRepositoryManager.LoggerManager => throw new NotImplementedException();
 
+    ICompanyRepository IRepositoryManager.Company => throw new NotImplementedException();
+
+    IEmployeeRepository IRepositoryManager.Employee => throw new NotImplementedException();
+
+    Contracts.Contracts.IstudentRepository IRepositoryManager.student => throw new NotImplementedException();
+
+    Contracts.Contracts.IayditoryaRepository IRepositoryManager.ayditorya => throw new NotImplementedException();
+
     public void Save() => _repositoryContext.SaveChanges();
+
+    void IRepositoryManager.Save()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+internal class EmployeeRepository : IEmployeeRepository
+{
+    public EmployeeRepository(RepositoryContext repositoryContext)
+    {
+        RepositoryContext = repositoryContext;
+    }
+
+    public RepositoryContext RepositoryContext { get; }
+
+    public void AnyMethodFromEmployeeRepository()
+    {
+        throw new NotImplementedException();
+    }
 }

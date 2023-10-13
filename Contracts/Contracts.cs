@@ -1,4 +1,5 @@
-﻿using static Contracts.Contracts;
+﻿using Entities.Models;
+using static Contracts.Contracts;
 
 namespace Contracts
 {
@@ -15,6 +16,7 @@ namespace Contracts
         public interface ICompanyRepository
         {
             void AnyMethodFromCompanyRepository();
+            IEnumerable<Company> GetAllCompanies(bool trackChanges);
         }
         public interface IEmployeeRepository
         {
@@ -39,5 +41,5 @@ namespace Contracts
         ILoggerManager LoggerManager { get; }
         void Save();
     }
-
 }
+
