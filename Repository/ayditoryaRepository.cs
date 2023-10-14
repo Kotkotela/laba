@@ -11,7 +11,7 @@ using static Contracts.Contracts;
 
 namespace Repository
 {
-    public class ayditoryaRepository : RepositoryBase<ayditorya>, IayditoryaRepository
+    public class AyditoryaRepository : RepositoryBase<ayditorya>, IayditoryaRepository
     {
         public ayditoryaRepository(RepositoryContext repositoryContext)
             : base(repositoryContext) { }

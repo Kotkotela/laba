@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace Entities.Models
 {
-    public class student
+    public class Student
     {
         [Column("studentId")]
         public Guid Id { get; set; }

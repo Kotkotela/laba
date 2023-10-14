@@ -10,7 +10,7 @@ using static Contracts.Contracts;
 
 namespace Repository
 {
-    public class studentRepostiory : RepositoryBase<student>, IstudentRepository
+    public class StudentRepostiory : RepositoryBase<student>, IstudentRepository
     {
         public studentRepostiory(RepositoryContext repositoryContext)
             : base(repositoryContext) { }

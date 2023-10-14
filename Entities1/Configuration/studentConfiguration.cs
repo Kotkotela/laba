@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Configuration
 {
-    public class studentConfiguration : IEntityTypeConfiguration<student>
+    public class StudentConfiguration : IEntityTypeConfiguration<student>
     {
         public void Configure(EntityTypeBuilder<student> builder)
         {
