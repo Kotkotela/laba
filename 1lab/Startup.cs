@@ -1,6 +1,8 @@
 using _1lab.Extensions;
+using AutoMapper;
 using Contracts;
 using Entities.DataTransferObjects;
+using Entities.Models;
 using LoggerService;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +33,12 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddAutoMapper(typeof(Startup));
+        services.AddControllers(config =>
+        {
+            config.RespectBrowserAcceptHeader = true;
+            config.ReturnHttpNotAcceptable = true;
+        }).AddXmlDataContractSerializerFormatters()
+          .AddCustomCSVFormatter();
     }
 
 
@@ -43,7 +51,7 @@ public class Startup
             app.UseSwaggerUI();
         }
 
-        app.ConfigureExceptionHandler((Contracts.ILoggerManager)logger);
+        app.ConfigureExceptionHandler(logger);
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseCors("CorsPolicy");
@@ -71,24 +79,14 @@ public class Startup
         void Delete(T entity);
     }
 }
-[Route("[controller]")]
-[ApiController]
-public class WeatherForecastController : ControllerBase
+public class MappingProfile : Profile
 {
-    private readonly IRepositoryManager _repository;
-    public WeatherForecastController(IRepositoryManager repository)
+    public MappingProfile()
     {
-        _repository = repository;
-    }
+        CreateMap<Company, CompanyDto>().ForMember(c => c.FullAddress, opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
+        CreateMap<Employee, EmployeeDto>();
 
-    [HttpGet]
-    public ActionResult<IEnumerable<string>> Get()
-    {
-        _repository.Company.AnyMethodFromCompanyRepository();
-        _repository.Employee.AnyMethodFromEmployeeRepository();
-        return new string[] { "value1", "value2" };
     }
-
 }
 
 

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿/**using AutoMapper;
 using Contracts;
 using Entities.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
@@ -19,19 +19,19 @@ public class CompaniesController : ControllerBase
         _mapper = mapper;
     }
     [HttpGet]
-    public IActionResult GetCompanies()
+    [HttpGet("{id}")]
+    public IActionResult GetCompany(Guid id)
     {
-        try
+        var company = _repository.Company.GetCompany(id, trackChanges: false);
+        if (company == null)
         {
-            var companies = _repository.Company.GetAllCompanies(trackChanges:
-           false);
-            var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
-            return Ok(companiesDto);
+            _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
+            return NotFound();
         }
-        catch (Exception ex)
+        else
         {
-            _logger.LogError($"Something went wrong in the {nameof(GetCompanies)}action { ex}");
-        return StatusCode(500, "Internal server error");
+            var companyDto = _mapper.Map<CompanyDto>(company);
+            return Ok(companyDto);
         }
     }
-}
+}*/

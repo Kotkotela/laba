@@ -10,7 +10,7 @@ using Entities.Models;
 
 namespace Entities.Configuration
 {
-    public class ayditoryaConfiguration : IEntityTypeConfiguration<ayditorya>
+    public class AyditoryaConfiguration : IEntityTypeConfiguration<ayditorya>
     {
         public void Configure(EntityTypeBuilder<ayditorya> builder)
         {

@@ -15,7 +15,7 @@ namespace Entities
         {
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            modelBuilder.ApplyConfiguration(new ayditoryaConfiguration());
+            modelBuilder.ApplyConfiguration(new AyditoryaConfiguration());
         }
 
         public DbSet<Company> Companies { get; set; }
