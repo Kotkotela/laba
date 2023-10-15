@@ -33,12 +33,12 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddAutoMapper(typeof(Startup));
-        services.AddControllers(config =>
-        {
+        services.AddControllers(config => {
             config.RespectBrowserAcceptHeader = true;
             config.ReturnHttpNotAcceptable = true;
-        }).AddXmlDataContractSerializerFormatters()
-          .AddCustomCSVFormatter();
+        }).AddNewtonsoftJson()
+        .AddXmlDataContractSerializerFormatters()
+        .AddCustomCSVFormatter();
     }
 
 
@@ -85,6 +85,10 @@ public class MappingProfile : Profile
     {
         CreateMap<Company, CompanyDto>().ForMember(c => c.FullAddress, opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
         CreateMap<Employee, EmployeeDto>();
+        CreateMap<CompanyForCreationDto, Company>();
+        CreateMap<CompanyForUpdateDto, Company>();
+        CreateMap<EmployeeForCreationDto, Employee>();
+        CreateMap<EmployeeForUpdateDto, Employee>().ReverseMap();
 
     }
 }

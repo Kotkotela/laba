@@ -1,10 +1,16 @@
 ﻿using Entities.Models;
 using Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using static Contracts.Contracts;
 using Contracts;
 
 namespace Repository
 {
+
     public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
     {
         public Company GetCompany(Guid companyId, bool trackChanges) => FindByCondition(c => c.Id.Equals(companyId), trackChanges).SingleOrDefault();
@@ -12,7 +18,10 @@ namespace Repository
         : base(repositoryContext)
         {
         }
-
+        public void DeleteCompany(Company company)
+        {
+            Delete(company);
+        }
         public void AnyMethodFromCompanyRepository()
         {
 
@@ -34,6 +43,10 @@ namespace Repository
         .OrderBy(e => e.Name);
         public Employee GetEmployee(Guid companyId, Guid id, bool trackChanges) => FindByCondition(e => e.CompanyId.Equals(companyId) && e.Id.Equals(id), trackChanges).SingleOrDefault();
 
+        public void DeleteEmployee(Employee employee)
+        {
+            Delete(employee);
+        }
         public EmployeeRepository(RepositoryContext repositoryContext)
         : base(repositoryContext)
         {
@@ -58,3 +71,4 @@ namespace Repository
         }
     }
 }
+
