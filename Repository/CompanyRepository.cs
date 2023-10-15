@@ -15,13 +15,17 @@ namespace Repository
 
         public void AnyMethodFromCompanyRepository()
         {
-            throw new NotImplementedException();
+
         }
 
         public IEnumerable<Company> GetAllCompanies(bool trackChanges) =>
-       FindAll(trackChanges)
-        .OrderBy(c => c.Name)
-        .ToList();
+                FindAll(trackChanges)
+                .OrderBy(c => c.Name)
+                .ToList();
+
+        public void CreateCompany(Company company) => Create(company);
+
+        public IEnumerable<Company> GetByIds(IEnumerable<Guid> ids, bool trackChanges) => FindByCondition(x => ids.Contains(x.Id), trackChanges).ToList();
     }
     public class EmployeeRepository : RepositoryBase<Employee>, IEmployeeRepository
     {
@@ -45,6 +49,12 @@ namespace Repository
             throw new NotImplementedException();
         }
 
+        public void CreateEmployeeForCompany(Guid companyId, Employee employee)
+        {
 
+            employee.CompanyId = companyId;
+            Create(employee);
+
+        }
     }
 }
