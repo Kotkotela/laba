@@ -39,6 +39,10 @@ public class Startup
         }).AddNewtonsoftJson()
         .AddXmlDataContractSerializerFormatters()
         .AddCustomCSVFormatter();
+        services.Configure<ApiBehaviorOptions>(options =>
+        {
+            options.SuppressModelStateInvalidFilter = true;
+        });
     }
 
 
