@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities.Models;
 using Entities.RequestFeatures;
+using System.Dynamic;
 
 namespace Contracts
 {
@@ -52,4 +53,9 @@ namespace Contracts
         void CreateEmployeeForCompany(Guid companyId, Employee employee);
         void DeleteEmployee(Employee employee);
     }
+}
+public interface IDataShaper<T>
+{
+    IEnumerable<ExpandoObject> ShapeData(IEnumerable<T> entities, string fieldsString);
+    ExpandoObject ShapeData(T entity, string fieldsString);
 }

@@ -17,7 +17,7 @@ public class Startup
     [Obsolete]
     public Startup(IConfiguration configuration)
     {
-        LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+        LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
         Configuration = configuration;
     }
 
