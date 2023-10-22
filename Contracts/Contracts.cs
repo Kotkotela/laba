@@ -1,7 +1,6 @@
 ﻿using Contracts;
 using Entities.Models;
-
-
+using Entities.RequestFeatures;
 
 namespace Contracts
 {
@@ -31,6 +30,8 @@ public interface IRepositoryManager
 
 
 
+
+
 namespace Contracts
 {
     public interface ICompanyRepository
@@ -46,9 +47,8 @@ namespace Contracts
 {
     public interface IEmployeeRepository
     {
-
-        object GetEmployee(Guid companyId, Guid id, bool trackChanges);
-        IEnumerable<Employee> GetEmployees(Guid companyId, bool trackChanges);
+        Task<PagedList<Employee>> GetEmployeesAsync(Guid companyId, EmployeeParameters employeeParameters, bool trackChanges);
+        Task<Employee> GetEmployeeAsync(Guid companyId, Guid id, bool trackChanges);
         void CreateEmployeeForCompany(Guid companyId, Employee employee);
         void DeleteEmployee(Employee employee);
     }

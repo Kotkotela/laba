@@ -13,7 +13,7 @@ public class RepositoryManager : IRepositoryManager
     private RepositoryContext _repositoryContext;
     private ICompanyRepository _companyRepository;
     private IEmployeeRepository _employeeRepository;
-    public Task SaveAsync() => _repositoryContext.SaveChangesAsync();
+
     public RepositoryManager(RepositoryContext repositoryContext)
     {
         _repositoryContext = repositoryContext;
@@ -29,14 +29,12 @@ public class RepositoryManager : IRepositoryManager
     }
     public IEmployeeRepository Employee
     {
-
         get
         {
-
             if (_employeeRepository == null)
                 _employeeRepository = new EmployeeRepository(_repositoryContext);
             return _employeeRepository;
         }
     }
-    public void Save() => _repositoryContext.SaveChanges();
+    public Task SaveAsync() => _repositoryContext.SaveChangesAsync();
 }

@@ -1,3 +1,4 @@
+using _1lab.ActionFilters;
 using _1lab.Extensions;
 using AutoMapper;
 using Contracts;
@@ -33,7 +34,8 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddAutoMapper(typeof(Startup));
-        services.AddControllers(config => {
+        services.AddControllers(config =>
+        {
             config.RespectBrowserAcceptHeader = true;
             config.ReturnHttpNotAcceptable = true;
         }).AddNewtonsoftJson()
@@ -43,6 +45,9 @@ public class Startup
         {
             options.SuppressModelStateInvalidFilter = true;
         });
+        services.AddScoped<ValidationFilterAttribute>();
+        services.AddScoped<ValidateCompanyExistsAttribute>();
+        services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
     }
 
 
