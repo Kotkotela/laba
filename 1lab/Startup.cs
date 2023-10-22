@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 using NLog;
 using System;
 using System.Linq.Expressions;
-using WebApplication1.Extensions;
 namespace ShopApi;
 public class Startup
 {
