@@ -53,6 +53,7 @@ public class Startup
         services.AddAuthentication();
         services.ConfigureIdentity();
         services.ConfigureJWT(Configuration);
+        services.ConfigureSwagger();
     }
 
 
