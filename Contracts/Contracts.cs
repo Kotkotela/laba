@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Entities.DataTransferObjects;
 using Entities.Models;
 using Entities.RequestFeatures;
 using System.Dynamic;
@@ -58,4 +59,9 @@ public interface IDataShaper<T>
 {
     IEnumerable<ExpandoObject> ShapeData(IEnumerable<T> entities, string fieldsString);
     ExpandoObject ShapeData(T entity, string fieldsString);
+}
+public interface IAuthenticationManager
+{
+    Task<bool> ValidateUser(UserForAuthenticationDto userForAuth);
+    Task<string> CreateToken();
 }

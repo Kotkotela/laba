@@ -9,6 +9,8 @@
   <ItemGroup>
     <PackageReference Include="Lucene.Net" Version="3.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.33.0" />
   </ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Entities1\Entities.csproj" />

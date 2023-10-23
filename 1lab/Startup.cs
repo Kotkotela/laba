@@ -8,6 +8,7 @@ using LoggerService;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using NLog;
+using Repository;
 using System;
 using System.Linq.Expressions;
 namespace ShopApi;
@@ -47,6 +48,11 @@ public class Startup
         services.AddScoped<ValidationFilterAttribute>();
         services.AddScoped<ValidateCompanyExistsAttribute>();
         services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
+        services.AddScoped<IAuthenticationManager, AuthenticationManager>();
+        services.ConfigureVersioning();
+        services.AddAuthentication();
+        services.ConfigureIdentity();
+        services.ConfigureJWT(Configuration);
     }
 
 
@@ -58,7 +64,6 @@ public class Startup
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
         app.ConfigureExceptionHandler(logger);
         app.UseHttpsRedirection();
         app.UseStaticFiles();
@@ -69,7 +74,7 @@ public class Startup
         });
 
         app.UseRouting();
-
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
