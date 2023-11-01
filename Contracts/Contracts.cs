@@ -26,6 +26,8 @@ public interface IRepositoryManager
 {
     ICompanyRepository Company { get; }
     IEmployeeRepository Employee { get; }
+    IAyditoryaRepository Ayditorya { get; }
+    IStudentRepository Student { get; }
     Task SaveAsync();
 }
 
@@ -35,6 +37,24 @@ public interface IRepositoryManager
 
 namespace Contracts
 {
+    public interface IStudentRepository
+    {
+        Task<PagedList<Student>> GetStudentsAsync(Guid ayditoryaId, StudentParameters studentParameters, bool trackChanges);
+        Task<Student> GetStudentAsync(Guid ayditoryaId, Guid id, bool trackChanges);
+        void CreateStudentForAyditorya(Guid ayditoryaId, Student student);
+        void DeleteStudent(Student student);
+
+    }
+
+
+    public interface IAyditoryaRepository
+    {
+        Task<IEnumerable<Ayditorya>> GetAllAyditoryasAsync(bool trackChanges);
+        Task<Ayditorya> GetAyditoryaAsync(Guid ayditoryaId, bool trackChanges);
+        void CreateAyditorya(Ayditorya ayditorya);
+        Task<IEnumerable<Ayditorya>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges);
+        void DeleteAyditorya(Ayditorya ayditorya);
+    }
     public interface ICompanyRepository
     {
         Task<IEnumerable<Company>> GetAllCompaniesAsync(bool trackChanges);

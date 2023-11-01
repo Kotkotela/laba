@@ -36,5 +36,10 @@ public class RepositoryManager : IRepositoryManager
             return _employeeRepository;
         }
     }
+
+    public IAyditoryaRepository Ayditorya => throw new NotImplementedException();
+
+    public IStudentRepository Student => throw new NotImplementedException();
+
     public Task SaveAsync() => _repositoryContext.SaveChangesAsync();
 }
