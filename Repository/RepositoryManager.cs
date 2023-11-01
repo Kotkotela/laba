@@ -36,5 +36,19 @@ public class RepositoryManager : IRepositoryManager
             return _employeeRepository;
         }
     }
-    public Task SaveAsync() => _repositoryContext.SaveChangesAsync();
+
+    ICompanyRepository IRepositoryManager.Company => throw new NotImplementedException();
+
+    IEmployeeRepository IRepositoryManager.Employee => throw new NotImplementedException();
+
+
+    IStudentRepository IRepositoryManager.Student => throw new NotImplementedException();
+
+    IAyditoryaRepository IRepositoryManager.Ayditorya => throw new NotImplementedException();
+
+
+    Task IRepositoryManager.SaveAsync()
+    {
+        throw new NotImplementedException();
+    }
 }
