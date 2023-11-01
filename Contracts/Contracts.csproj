@@ -13,7 +13,7 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.33.0" />
   </ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Entities1\Entities.csproj" />
+		<ProjectReference Include="..\Entities1.3\Entities1.3.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -13,6 +13,8 @@ public class RepositoryManager : IRepositoryManager
     private RepositoryContext _repositoryContext;
     private ICompanyRepository _companyRepository;
     private IEmployeeRepository _employeeRepository;
+    private IAyditoryaRepository _AyditoryaRepository;
+    private IStudentRepository _studentRepository;
 
     public RepositoryManager(RepositoryContext repositoryContext)
     {
@@ -36,5 +38,19 @@ public class RepositoryManager : IRepositoryManager
             return _employeeRepository;
         }
     }
+
+    ICompanyRepository IRepositoryManager.Company => throw new NotImplementedException();
+
+    IEmployeeRepository IRepositoryManager.Employee => throw new NotImplementedException();
+
+    IAyditoryaRepository IRepositoryManager.Ayditorya => throw new NotImplementedException();
+
+    IStudentRepository IRepositoryManager.Student => throw new NotImplementedException();
+
     public Task SaveAsync() => _repositoryContext.SaveChangesAsync();
+
+    Task IRepositoryManager.SaveAsync()
+    {
+        throw new NotImplementedException();
+    }
 }

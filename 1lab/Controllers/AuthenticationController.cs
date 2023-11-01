@@ -6,6 +6,8 @@ using Entities.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Entities1._2.Models;
+using Entities1._2.DataTransferObjects;
 
 namespace _1lab.Controllers
 {

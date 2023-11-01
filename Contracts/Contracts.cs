@@ -2,6 +2,7 @@
 using Entities.DataTransferObjects;
 using Entities.Models;
 using Entities.RequestFeatures;
+using Entities1._2.DataTransferObjects;
 using System.Dynamic;
 
 namespace Contracts
@@ -27,6 +28,8 @@ public interface IRepositoryManager
 {
     ICompanyRepository Company { get; }
     IEmployeeRepository Employee { get; }
+    IAyditoryaRepository Ayditorya { get; }
+    IStudentRepository Student { get; }
     Task SaveAsync();
 }
 
@@ -36,6 +39,29 @@ public interface IRepositoryManager
 
 namespace Contracts
 {
+    public interface IAuthenticationManager
+    {
+        Task<bool> ValidateUser(UserForAuthenticationDto userForAuth);
+        Task<string> CreateToken();
+    }
+    public interface IStudentRepository
+    {
+        Task<PagedList<Student>> GetStudentsAsync(Guid ayditoryaId, StudentParameters studentParameters, bool trackChanges);
+        Task<Student> GetStudentAsync(Guid ayditoryaId, Guid id, bool trackChanges);
+        void CreateStudentForAyditorya(Guid ayditoryaId, Student student);
+        void DeleteStudent(Student student);
+
+    }
+
+
+    public interface IAyditoryaRepository
+    {
+        Task<IEnumerable<Ayditorya>> GetAllAyditoryasAsync(bool trackChanges);
+        Task<Ayditorya> GetAyditoryaAsync(Guid ayditoryaId, bool trackChanges);
+        void CreateAyditorya(Ayditorya ayditorya);
+        Task<IEnumerable<Ayditorya>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges);
+        void DeleteAyditorya(Ayditorya ayditorya);
+    }
     public interface ICompanyRepository
     {
         Task<IEnumerable<Company>> GetAllCompaniesAsync(bool trackChanges);

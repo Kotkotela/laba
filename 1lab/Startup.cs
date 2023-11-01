@@ -48,12 +48,13 @@ public class Startup
         services.AddScoped<ValidationFilterAttribute>();
         services.AddScoped<ValidateCompanyExistsAttribute>();
         services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
+        services.AddScoped<ValidateAyditoryaExistsAttribute>();
+        services.AddScoped<ValidateStudentForAyditoryaExistsAttribute>();
         services.AddScoped<IAuthenticationManager, AuthenticationManager>();
         services.ConfigureVersioning();
         services.AddAuthentication();
         services.ConfigureIdentity();
         services.ConfigureJWT(Configuration);
-        services.ConfigureSwagger();
     }
 
 
