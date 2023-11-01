@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SouMUZ/7Th8fc62AaZ6q3KlYdpfLJ90AjPieCfhqQkEl8EDV6uoNs7Ut462pXn8ue2HrNkd1md5LxTBqD6oH+w==",
+  "dgSpecHash": "uWI+IXHxLHYfeWTzZNA3YgnVagyTljFigshvKed1x9r2O/CBxXV/1t5RM3CbbPMUS9jMXetKZaqKqeSNP3/Smg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bossn\\OneDrive\\Рабочий стол\\laba-la8\\Entities1\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\bossn\\source\\repos\\repositorii\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bossn\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
     "C:\\Users\\bossn\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.11\\microsoft.entityframeworkcore.abstractions.7.0.11.nupkg.sha512",
