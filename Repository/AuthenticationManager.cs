@@ -6,9 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities.DataTransferObjects;
 using Entities.Models;
+using Entities1._2.DataTransferObjects;
+using Entities1._2.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Repository
 {
@@ -26,8 +29,8 @@ namespace Repository
         public async Task<bool> ValidateUser(UserForAuthenticationDto userForAuth)
         {
             _user = await _userManager.FindByNameAsync(userForAuth.UserName);
-            return (_user != null && await _userManager.CheckPasswordAsync(_user,
-            userForAuth.Password));
+            return _user != null && await _userManager.CheckPasswordAsync(_user,
+            userForAuth.Password);
         }
         public async Task<string> CreateToken()
         {
@@ -65,6 +68,16 @@ namespace Repository
                 expires:
                 DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings.GetSection("expires").Value)), signingCredentials: signingCredentials);
             return tokenOptions;
+        }
+
+        Task<bool> IAuthenticationManager.ValidateUser(UserForAuthenticationDto userForAuth)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<string> IAuthenticationManager.CreateToken()
+        {
+            throw new NotImplementedException();
         }
     }
 }

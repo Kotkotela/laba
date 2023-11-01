@@ -1,16 +1,18 @@
-﻿using _1lab;
+﻿using System.Runtime.ConstrainedExecution;
+using System.Text;
 using Contracts;
 using Entities;
-using LoggerService;
-using Microsoft.AspNetCore.Mvc.Versioning;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using _1lab.Controllers;
 using Entities.Models;
-using Microsoft.AspNetCore.Identity;
+using LoggerService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Repository;
+using Entities1._2.Models;
+using _1lab.Controllers;
 
 namespace _1lab.Extensions
 {
@@ -49,6 +51,7 @@ namespace _1lab.Extensions
                 opt.DefaultApiVersion = new ApiVersion(1, 0);
                 opt.ApiVersionReader = new HeaderApiVersionReader("api-version");
                 opt.Conventions.Controller<CompaniesController>().HasApiVersion(new ApiVersion(1, 0));
+                opt.Conventions.Controller<AyditoryaController>().HasApiVersion(new ApiVersion(1, 0));
             });
         }
         public static void ConfigureIdentity(this IServiceCollection services)
