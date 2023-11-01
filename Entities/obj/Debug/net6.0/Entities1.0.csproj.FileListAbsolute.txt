@@ -1,0 +1,12 @@
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\bin\Debug\net6.0\Entities1.0.deps.json
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\bin\Debug\net6.0\Entities1.0.dll
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\bin\Debug\net6.0\Entities1.0.pdb
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\Entities1.0.csproj.AssemblyReference.cache
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\Entities1.0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\Entities1.0.AssemblyInfoInputs.cache
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\Entities1.0.AssemblyInfo.cs
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\Entities1.0.csproj.CoreCompileInputs.cache
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\Entities1.0.dll
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\refint\Entities1.0.dll
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\Entities1.0.pdb
+C:\Users\bossn\OneDrive\Рабочий стол\laba-la8\Entities1.0\obj\Debug\net6.0\ref\Entities1.0.dll
