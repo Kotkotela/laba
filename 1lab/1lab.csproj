@@ -39,7 +39,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
-	<ProjectReference Include="..\Entities1\Entities.csproj" />
+	<ProjectReference Include="..\Entities1.00\Entities1.00.csproj" />
     <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
     <ProjectReference Include="..\Repository\Repository.csproj" />
   </ItemGroup>

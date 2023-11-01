@@ -26,6 +26,9 @@ public interface IRepositoryManager
 {
     ICompanyRepository Company { get; }
     IEmployeeRepository Employee { get; }
+    IAyditoryaRepository Ayditorya { get; }
+    IStudentRepository Student { get; }
+
     Task SaveAsync();
 }
 
